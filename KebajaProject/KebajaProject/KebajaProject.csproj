@@ -68,9 +68,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\accountController.cs" />
     <Compile Include="Controllers\adminController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\homeController.cs" />
     <Compile Include="Controllers\newsController.cs" />
     <Compile Include="Controllers\themesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -90,6 +90,9 @@
       <DependentUpon>KebajaDB.mdf</DependentUpon>
     </Content>
     <Content Include="Global.asax" />
+    <Content Include="Views\account\index.aspx" />
+    <Content Include="Views\account\mymessages.aspx" />
+    <Content Include="Views\account\mynews.aspx" />
     <Content Include="Views\admin\addmember.aspx" />
     <Content Include="Views\admin\dashboard.aspx" />
     <Content Include="Views\admin\editmember.aspx" />
@@ -123,12 +126,8 @@
     <Content Include="Scripts\MicrosoftMvcAjax.debug.js" />
     <Content Include="Scripts\MicrosoftMvcValidation.js" />
     <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
-    <Content Include="Views\Account\ChangePassword.aspx" />
-    <Content Include="Views\Account\ChangePasswordSuccess.aspx" />
-    <Content Include="Views\Account\LogOn.aspx" />
-    <Content Include="Views\Account\Register.aspx" />
-    <Content Include="Views\Home\About.aspx" />
-    <Content Include="Views\Home\Index.aspx" />
+    <Content Include="Views\home\About.aspx" />
+    <Content Include="Views\home\Index.aspx" />
     <Content Include="Views\Shared\Error.aspx" />
     <Content Include="Views\Shared\LogOnUserControl.ascx" />
     <Content Include="Views\Shared\Site.Master" />
