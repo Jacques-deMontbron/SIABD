@@ -4,29 +4,24 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace MvcApplication1.Controllers
+namespace KebajaProject.Controllers
 {
-    public class newsController : Controller
+    public class themesController : Controller
     {
         //
-        // GET: /News/
+        // GET: /Themes/
 
         public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult Like()
+        public ActionResult Read()
         {
             return View();
         }
 
         public ActionResult Add()
-        {
-            return View();
-        }
-
-        public ActionResult Comment()
         {
             return View();
         }
