@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MvcApplication1.Models;
 
 namespace MvcApplication1.Controllers
 {
     public class newsController : Controller
     {
+
+        private KebajaEntities _db = new KebajaEntities();
         //
         // GET: /News/
 
@@ -18,11 +21,15 @@ namespace MvcApplication1.Controllers
 
         public ActionResult Like()
         {
-            return View();
+            // Ajouter le like
+
+            return RedirectToAction("Index"); // avec param du message
         }
 
         public ActionResult Add()
         {
+
+
             return View();
         }
 
