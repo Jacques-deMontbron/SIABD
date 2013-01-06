@@ -7,9 +7,10 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Security;
-using MvcApplication1.Models;
 
-namespace MvcApplication1.Controllers
+using KebajaProject.Models;
+
+namespace KebajaProject.Controllers
 {
 
     [HandleError]
