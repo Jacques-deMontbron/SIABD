@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="KebajaDBModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="KebajaDBModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="KebajaDBModelStoreContainer">
           <EntitySet Name="announces_read" EntityType="KebajaDBModel.Store.announces_read" store:Type="Tables" Schema="kebaja" />
           <EntitySet Name="comments" EntityType="KebajaDBModel.Store.comments" store:Type="Tables" Schema="kebaja" />
@@ -74,7 +74,7 @@
           <Property Name="id_comment" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="id_message" Type="int" Nullable="false" />
           <Property Name="id_user" Type="int" Nullable="false" />
-          <Property Name="date_post" Type="date" Nullable="false" />
+          <Property Name="date_post" Type="datetime" Nullable="false" />
           <Property Name="content" Type="text" />
         </EntityType>
         <EntityType Name="likes">
@@ -100,7 +100,8 @@
           <Property Name="id_message" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="id_user" Type="int" Nullable="false" />
           <Property Name="id_theme" Type="int" Nullable="false" />
-          <Property Name="date_post" Type="date" Nullable="false" />
+          <Property Name="date_post" Type="datetime" Nullable="false" />
+          <Property Name="title" Type="varchar" MaxLength="256" />
           <Property Name="answer_to" Type="int" Nullable="false" />
           <Property Name="is_announce" Type="bool" Nullable="false" />
           <Property Name="is_news" Type="bool" Nullable="false" />
@@ -120,7 +121,7 @@
             <PropertyRef Name="id_theme" />
           </Key>
           <Property Name="id_theme" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="title" Type="varchar" Nullable="false" MaxLength="40" />
+          <Property Name="title" Type="varchar" Nullable="false" MaxLength="128" />
         </EntityType>
         <EntityType Name="users">
           <Key>
@@ -264,8 +265,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="KebajaDBModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
@@ -382,6 +382,7 @@
           <NavigationProperty Name="likes" Relationship="KebajaDBModel.likes_ibfk_1" FromRole="messages" ToRole="likes" />
           <NavigationProperty Name="users" Relationship="KebajaDBModel.messages_ibfk_1" FromRole="messages" ToRole="users" />
           <NavigationProperty Name="themes" Relationship="KebajaDBModel.messages_ibfk_2" FromRole="messages" ToRole="themes" />
+          <Property Type="String" Name="title" />
         </EntityType>
         <EntityType Name="subscriptions">
           <Key>
@@ -579,7 +580,8 @@
             <ScalarProperty Name="password" ColumnName="password" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="messages"><EntityTypeMapping TypeName="KebajaDBModel.messages"><MappingFragment StoreEntitySet="messages">
-            <ScalarProperty Name="id_message" ColumnName="id_message" />
+            <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="id_message" ColumnName="id_message" />
             <ScalarProperty Name="id_user" ColumnName="id_user" />
             <ScalarProperty Name="id_theme" ColumnName="id_theme" />
             <ScalarProperty Name="date_post" ColumnName="date_post" />

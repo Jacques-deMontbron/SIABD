@@ -37,6 +37,7 @@
             <asp:ContentPlaceHolder ID="MainContent" runat="server" />
 
             <div id="footer">
+                <asp:ContentPlaceHolder ID="FooterContent" runat="server" />
             </div>
         </div>
     </div>

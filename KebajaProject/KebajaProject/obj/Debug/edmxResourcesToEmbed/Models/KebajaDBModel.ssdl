@@ -1,0 +1,263 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="KebajaDBModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="KebajaDBModelStoreContainer">
+    <EntitySet Name="announces_read" EntityType="KebajaDBModel.Store.announces_read" store:Type="Tables" Schema="kebaja" />
+    <EntitySet Name="comments" EntityType="KebajaDBModel.Store.comments" store:Type="Tables" Schema="kebaja" />
+    <EntitySet Name="likes" EntityType="KebajaDBModel.Store.likes" store:Type="Tables" Schema="kebaja" />
+    <EntitySet Name="logins" EntityType="KebajaDBModel.Store.logins" store:Type="Tables" Schema="kebaja" />
+    <EntitySet Name="messages" EntityType="KebajaDBModel.Store.messages" store:Type="Tables" Schema="kebaja" />
+    <EntitySet Name="subscriptions" EntityType="KebajaDBModel.Store.subscriptions" store:Type="Tables" Schema="kebaja" />
+    <EntitySet Name="themes" EntityType="KebajaDBModel.Store.themes" store:Type="Tables" Schema="kebaja" />
+    <EntitySet Name="users" EntityType="KebajaDBModel.Store.users" store:Type="Tables" Schema="kebaja" />
+    <AssociationSet Name="announces_read_ibfk_1" Association="KebajaDBModel.Store.announces_read_ibfk_1">
+      <End Role="users" EntitySet="users" />
+      <End Role="announces_read" EntitySet="announces_read" />
+    </AssociationSet>
+    <AssociationSet Name="announces_read_ibfk_2" Association="KebajaDBModel.Store.announces_read_ibfk_2">
+      <End Role="messages" EntitySet="messages" />
+      <End Role="announces_read" EntitySet="announces_read" />
+    </AssociationSet>
+    <AssociationSet Name="comments_ibfk_1" Association="KebajaDBModel.Store.comments_ibfk_1">
+      <End Role="messages" EntitySet="messages" />
+      <End Role="comments" EntitySet="comments" />
+    </AssociationSet>
+    <AssociationSet Name="comments_ibfk_2" Association="KebajaDBModel.Store.comments_ibfk_2">
+      <End Role="users" EntitySet="users" />
+      <End Role="comments" EntitySet="comments" />
+    </AssociationSet>
+    <AssociationSet Name="likes_ibfk_1" Association="KebajaDBModel.Store.likes_ibfk_1">
+      <End Role="messages" EntitySet="messages" />
+      <End Role="likes" EntitySet="likes" />
+    </AssociationSet>
+    <AssociationSet Name="likes_ibfk_2" Association="KebajaDBModel.Store.likes_ibfk_2">
+      <End Role="users" EntitySet="users" />
+      <End Role="likes" EntitySet="likes" />
+    </AssociationSet>
+    <AssociationSet Name="logins_ibfk_1" Association="KebajaDBModel.Store.logins_ibfk_1">
+      <End Role="users" EntitySet="users" />
+      <End Role="logins" EntitySet="logins" />
+    </AssociationSet>
+    <AssociationSet Name="messages_ibfk_1" Association="KebajaDBModel.Store.messages_ibfk_1">
+      <End Role="users" EntitySet="users" />
+      <End Role="messages" EntitySet="messages" />
+    </AssociationSet>
+    <AssociationSet Name="messages_ibfk_2" Association="KebajaDBModel.Store.messages_ibfk_2">
+      <End Role="themes" EntitySet="themes" />
+      <End Role="messages" EntitySet="messages" />
+    </AssociationSet>
+    <AssociationSet Name="subscriptions_ibfk_1" Association="KebajaDBModel.Store.subscriptions_ibfk_1">
+      <End Role="users" EntitySet="users" />
+      <End Role="subscriptions" EntitySet="subscriptions" />
+    </AssociationSet>
+    <AssociationSet Name="subscriptions_ibfk_2" Association="KebajaDBModel.Store.subscriptions_ibfk_2">
+      <End Role="themes" EntitySet="themes" />
+      <End Role="subscriptions" EntitySet="subscriptions" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="announces_read">
+    <Key>
+      <PropertyRef Name="id_read" />
+    </Key>
+    <Property Name="id_read" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="id_user" Type="int" Nullable="false" />
+    <Property Name="id_message" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="comments">
+    <Key>
+      <PropertyRef Name="id_comment" />
+    </Key>
+    <Property Name="id_comment" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="id_message" Type="int" Nullable="false" />
+    <Property Name="id_user" Type="int" Nullable="false" />
+    <Property Name="date_post" Type="datetime" Nullable="false" />
+    <Property Name="content" Type="text" />
+  </EntityType>
+  <EntityType Name="likes">
+    <Key>
+      <PropertyRef Name="id_like" />
+    </Key>
+    <Property Name="id_like" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="id_message" Type="int" Nullable="false" />
+    <Property Name="id_user" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="logins">
+    <Key>
+      <PropertyRef Name="id_login" />
+    </Key>
+    <Property Name="id_login" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="id_user" Type="int" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="messages">
+    <Key>
+      <PropertyRef Name="id_message" />
+    </Key>
+    <Property Name="id_message" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="id_user" Type="int" Nullable="false" />
+    <Property Name="id_theme" Type="int" Nullable="false" />
+    <Property Name="date_post" Type="datetime" Nullable="false" />
+    <Property Name="title" Type="varchar" MaxLength="256" />
+    <Property Name="answer_to" Type="int" Nullable="false" />
+    <Property Name="is_announce" Type="bool" Nullable="false" />
+    <Property Name="is_news" Type="bool" Nullable="false" />
+    <Property Name="is_censored" Type="bool" Nullable="false" />
+    <Property Name="content" Type="text" />
+  </EntityType>
+  <EntityType Name="subscriptions">
+    <Key>
+      <PropertyRef Name="id_sub" />
+    </Key>
+    <Property Name="id_sub" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="id_user" Type="int" Nullable="false" />
+    <Property Name="id_theme" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="themes">
+    <Key>
+      <PropertyRef Name="id_theme" />
+    </Key>
+    <Property Name="id_theme" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="title" Type="varchar" Nullable="false" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="id_user" />
+    </Key>
+    <Property Name="id_user" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="user_rank" Type="varchar" Nullable="false" MaxLength="15" />
+    <Property Name="rights" Type="int" Nullable="false" />
+    <Property Name="surname" Type="varchar" Nullable="false" MaxLength="30" />
+    <Property Name="name" Type="varchar" Nullable="false" MaxLength="30" />
+  </EntityType>
+  <Association Name="announces_read_ibfk_1">
+    <End Role="users" Type="KebajaDBModel.Store.users" Multiplicity="1" />
+    <End Role="announces_read" Type="KebajaDBModel.Store.announces_read" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="id_user" />
+      </Principal>
+      <Dependent Role="announces_read">
+        <PropertyRef Name="id_user" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="announces_read_ibfk_2">
+    <End Role="messages" Type="KebajaDBModel.Store.messages" Multiplicity="1" />
+    <End Role="announces_read" Type="KebajaDBModel.Store.announces_read" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="messages">
+        <PropertyRef Name="id_message" />
+      </Principal>
+      <Dependent Role="announces_read">
+        <PropertyRef Name="id_message" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="comments_ibfk_1">
+    <End Role="messages" Type="KebajaDBModel.Store.messages" Multiplicity="1" />
+    <End Role="comments" Type="KebajaDBModel.Store.comments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="messages">
+        <PropertyRef Name="id_message" />
+      </Principal>
+      <Dependent Role="comments">
+        <PropertyRef Name="id_message" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="comments_ibfk_2">
+    <End Role="users" Type="KebajaDBModel.Store.users" Multiplicity="1" />
+    <End Role="comments" Type="KebajaDBModel.Store.comments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="id_user" />
+      </Principal>
+      <Dependent Role="comments">
+        <PropertyRef Name="id_user" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="likes_ibfk_1">
+    <End Role="messages" Type="KebajaDBModel.Store.messages" Multiplicity="1" />
+    <End Role="likes" Type="KebajaDBModel.Store.likes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="messages">
+        <PropertyRef Name="id_message" />
+      </Principal>
+      <Dependent Role="likes">
+        <PropertyRef Name="id_message" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="likes_ibfk_2">
+    <End Role="users" Type="KebajaDBModel.Store.users" Multiplicity="1" />
+    <End Role="likes" Type="KebajaDBModel.Store.likes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="id_user" />
+      </Principal>
+      <Dependent Role="likes">
+        <PropertyRef Name="id_user" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="logins_ibfk_1">
+    <End Role="users" Type="KebajaDBModel.Store.users" Multiplicity="1" />
+    <End Role="logins" Type="KebajaDBModel.Store.logins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="id_user" />
+      </Principal>
+      <Dependent Role="logins">
+        <PropertyRef Name="id_user" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="messages_ibfk_1">
+    <End Role="users" Type="KebajaDBModel.Store.users" Multiplicity="1" />
+    <End Role="messages" Type="KebajaDBModel.Store.messages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="id_user" />
+      </Principal>
+      <Dependent Role="messages">
+        <PropertyRef Name="id_user" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="messages_ibfk_2">
+    <End Role="themes" Type="KebajaDBModel.Store.themes" Multiplicity="1" />
+    <End Role="messages" Type="KebajaDBModel.Store.messages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="themes">
+        <PropertyRef Name="id_theme" />
+      </Principal>
+      <Dependent Role="messages">
+        <PropertyRef Name="id_theme" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="subscriptions_ibfk_1">
+    <End Role="users" Type="KebajaDBModel.Store.users" Multiplicity="1" />
+    <End Role="subscriptions" Type="KebajaDBModel.Store.subscriptions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="id_user" />
+      </Principal>
+      <Dependent Role="subscriptions">
+        <PropertyRef Name="id_user" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="subscriptions_ibfk_2">
+    <End Role="themes" Type="KebajaDBModel.Store.themes" Multiplicity="1" />
+    <End Role="subscriptions" Type="KebajaDBModel.Store.subscriptions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="themes">
+        <PropertyRef Name="id_theme" />
+      </Principal>
+      <Dependent Role="subscriptions">
+        <PropertyRef Name="id_theme" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

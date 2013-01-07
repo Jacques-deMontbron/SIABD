@@ -77,6 +77,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\CommentModels.cs" />
     <Compile Include="Models\KebajaDBModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -89,10 +90,7 @@
     <Content Include="App_Data\KebajaDB_log.ldf">
       <DependentUpon>KebajaDB.mdf</DependentUpon>
     </Content>
-    <Content Include="bin\KebajaProject.dll" />
-    <Content Include="bin\KebajaProject.pdb" />
     <Content Include="Global.asax" />
-    <Content Include="obj\Debug\TempPE\Models.KebajaDBModel.Designer.cs.dll" />
     <Content Include="Views\account\index.aspx" />
     <Content Include="Views\account\mymessages.aspx" />
     <Content Include="Views\account\mynews.aspx" />
@@ -105,9 +103,9 @@
     <Content Include="Views\news\comment.aspx" />
     <Content Include="Views\news\index.aspx" />
     <Content Include="Views\news\like.aspx" />
+    <Content Include="Views\news\postcomment.aspx" />
     <Content Include="Views\themes\add.aspx" />
     <Content Include="Views\themes\index.aspx" />
-    <Content Include="Views\themes\indexb.aspx" />
     <Content Include="Views\themes\read.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -131,7 +129,6 @@
     <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
     <Content Include="Views\home\About.aspx" />
     <Content Include="Views\home\Index.aspx" />
-    <Content Include="Views\home\index.aspx" />
     <Content Include="Views\Shared\Error.aspx" />
     <Content Include="Views\Shared\LogOnUserControl.ascx" />
     <Content Include="Views\Shared\Site.Master" />
@@ -143,10 +140,6 @@
       <LastGenOutput>KebajaDBModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
-  </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
