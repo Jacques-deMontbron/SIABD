@@ -23,8 +23,10 @@
             <th></th>
             <th></th>
             <th></th>
+            <th></th>
         </tr>
         <tr>
+            <td style="width:50px;"></td>
             <td>
                 <%: String.Format("{0:g}", item.title) %>
             </td>
@@ -39,7 +41,7 @@
             </td>
         </tr>
         <tr>
-            <td colspan="4">
+            <td colspan="5">
                 <%: item.content %>
             </td>
         </tr>

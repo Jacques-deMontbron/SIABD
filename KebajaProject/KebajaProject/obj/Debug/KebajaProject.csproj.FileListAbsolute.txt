@@ -3,3 +3,8 @@ C:\Users\bastien\Documents\Visual Studio 2010\Projects\KebajaProject\KebajaProje
 C:\Users\bastien\Documents\Visual Studio 2010\Projects\KebajaProject\KebajaProject\bin\KebajaProject.pdb
 C:\Users\bastien\Documents\Visual Studio 2010\Projects\KebajaProject\KebajaProject\obj\Debug\KebajaProject.dll
 C:\Users\bastien\Documents\Visual Studio 2010\Projects\KebajaProject\KebajaProject\obj\Debug\KebajaProject.pdb
+C:\Users\bastien\Documents\GitHub\SIABD\KebajaProject\KebajaProject\bin\KebajaProject.dll
+C:\Users\bastien\Documents\GitHub\SIABD\KebajaProject\KebajaProject\bin\KebajaProject.pdb
+C:\Users\bastien\Documents\GitHub\SIABD\KebajaProject\KebajaProject\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\bastien\Documents\GitHub\SIABD\KebajaProject\KebajaProject\obj\Debug\KebajaProject.dll
+C:\Users\bastien\Documents\GitHub\SIABD\KebajaProject\KebajaProject\obj\Debug\KebajaProject.pdb

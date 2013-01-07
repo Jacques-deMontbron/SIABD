@@ -21,7 +21,7 @@
             <th></th>
         </tr>
         <tr>
-            <td></td>
+            <td style="width:50px;"></td>
             <td>
                 <%: String.Format("{0:g}", @Model.Message.title)%>
             </td>
@@ -40,6 +40,7 @@
 
     </table>
     
+    <br />
 
     <% foreach (var item in @Model.Comments) { %>
 
